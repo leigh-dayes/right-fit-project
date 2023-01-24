@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Demo</title>
+    <style>
+        label{ display: inline-block; width: 80px; }
+        input{width: 120px;}
+    </style>
+</head>
+<body>
+    <label>First Name</label><input type="text" id="fnamebox"><br><br>
+    <label>Last Name</label><input type="text" id="lnamebox"><br><br>
+    <label>Address</label><input type="text" id="addbox"><br><br>
+    <label>Email</label><input type="text" id="emailbox"><br><br>
+    <label>State</label><input type="text" id="statebox"><br><br>
+    <label>Postcode</label><input type="text" id="postcodebox">
+    <hr>
+    <button id="insertbtn">INSERT</button>
+    <button id="selectbtn">SELECT</button>
+    <button id="updatebtn">UPDATE</button>
+    <button id="deletebtn">DELETE</button>
+    <!-- IMPORTS AND CONFIG -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyCZH82hlwFMLz5V5R_5qURYAqexzMChBNY",
+          authDomain: "rightfit2.firebaseapp.com",
+          projectId: "rightfit2",
+          storageBucket: "rightfit2.appspot.com",
+          messagingSenderId: "461827436278",
+          appId: "1:461827436278:web:47ddaebf4192339b0e86d7"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        import {getDatabase, set, ref, child, update, remove}
+        from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+        const db = getDatabase();
+        // References
+        var fnamebox = document.getElementById("fnamebox");
+        var lnamebox = document.getElementById("lnamebox");
+        var addbox = document.getElementById("addbox");
+        var emailbox = document.getElementById("emailbox");
+        var statebox = document.getElementById("statebox");
+        var postcodebox = document.getElementById("postcodebox");
+
+        var insertbtn = document.getElementById("insertbtn");
+        var updatebtn = document.getElementById("updatebtn");
+        var deletebtn = document.getElementById("deletebtn");
+        var selectbtn = document.getElementById("selectbtn");
+
+        // functions
+        
+        // Insert
+        function insertData() {
+            set(ref(db, "customers/" + fnamebox.value), {
+                firstName: fnamebox.value,
+                lastName: lnamebox.value,
+                postalAddress: addbox.value,
+                email: emailbox.value,
+                state: statebox.value,
+                postcode: postcodebox.value
+            }).then(() => {
+                console.log("Customer Details saved to DB");
+            }).catch((e) => {
+                console.log("Save to DB unsuccessful: " + e);
+            });
+        }
+
+        insertbtn.addEventListener('click', insertData);
+    </script>
+</body>
+</html>

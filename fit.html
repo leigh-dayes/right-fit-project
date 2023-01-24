@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Fit Golf Gear</title>
+    <link rel="icon" type="image/icon" href="./pics/small.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Load jQuery from a cdn (cloudflare) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="./styles/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="header"></div>
+    <!-- Fitting form-->
+    <div class="container pt-5 m-auto text-center">
+        <h1 class="d-flex justify-content-center">Enter your measurables so we can find the right fit for you!<br><br></h1>
+        <form id="fitForm">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="height">
+                <label for="floatingInput">Height (cm)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="armLength">
+                <label for="floatingInput">Arm length (cm)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="handWidth">
+                <label for="floatingInput">Hand width (cm)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="7iSwingSpeed">
+                <label for="floatingInput">7 iron swing speed (mph)</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="driverAttackAngle">
+                <label for="floatingInput">Driver attack angle (degrees)</label>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" id="fitBtn">Fit me!</button>
+        </form>
+        <p class="row-cols-6 lh-sm p-m-5 m-auto fs-3">We take your height, arm length and hand width to decide size grips and what length<br>
+        shafts you need. Then we use your 7 iron swing speed and Driver attack angle to find the<br>
+        right shaft flex and loading design to maximise your distance!</p>
+    </div>
+    <!-- Shopping Cart-->
+    <div id="shoppingCart"></div>
+    <!-- Footer-->
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- setup page-->
+    <script src="./scripts/setup.js"></script>
+    <!-- shopping cart JS -->
+    <script src="./scripts/shop.js"></script>
+    <!-- fit page JS -->
+    <script src="./scripts/fit.js"></script>
+</body>
+</html>

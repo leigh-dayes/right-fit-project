@@ -1,0 +1,13 @@
+.card {
+    box-shadow: 5px 5px 5px 5px #888;
+}
+.card-img-top {
+    height: 300px;
+}
+#toastLogo {
+    height: 15px;
+    width: auto;
+}
+.card:hover {
+    background-color: blanchedalmond;
+}

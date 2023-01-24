@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Fit Golf Gear</title>
+    <link rel="icon" type="image/icon" href="./pics/small.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Load jQuery from a cdn (cloudflare) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="./styles/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/checkout.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="header"></div>
+    <!-- Checkout content-->
+    <div id="checkoutContainer">
+      <h1 class="d-flex justify-content-center pb-5">Checkout</h1>
+      <div id="shippingInfo" class="d-flex justify-content-center mb-md-5">
+        <div class="row justify-content-evenly">
+          <div class="form-check p-5 m-2 col-sm-12 col-lg-3" id="sameDayInput">
+              <input class="form-check-input" type="radio" id="sameDayDel">
+              <label class="form-check-label" for="sameDayDel">
+                  <h5>Same day delivery</h5>
+                  <p>Enter your postcode to see if you are eligible<br> for same day delivery</p>
+                  <div class="input-group mb-3 aria-hidden" >
+                      <input type="text" class="form-control" id="sameDay" placeholder="Postcode" >
+                      <button class="btn btn-outline-secondary" type="button" id="sameDayBtn">Check!</button>
+                  </div>
+              </label>
+            </div>
+          <div class="form-check p-5 m-2 col-sm-12 col-lg-3">
+              <input class="form-check-input" type="radio" id="clickCollect">
+              <label class="form-check-label" for="clickCollect">
+                  <h5>Click & Collect</h5>
+                  <p>Enter your postcode to find your nearest store</p>
+                  <div class="input-group mb-3 aria-hidden">
+                      <input type="text" class="form-control" placeholder="Postcode" id="clickAndCollect">
+                      <button class="btn btn-outline-secondary" type="button" id="clickAndCollectBtn">Check!</button>
+                  </div>
+              </label>
+          </div>
+          <div class="form-check p-5 m-2 col-sm-12 col-lg-3">
+              <input class="form-check-input" type="radio" id="standardDel">
+              <label class="form-check-label" for="standardDel">
+                  <h5>Standard delivery</h5>
+                  <p>5-10 Business days Australia wide<br><br><strong>Free</strong></p>
+              </label>
+          </div>
+      </div>
+    </div>
+      <!--Insert shopping cart from local storage-->
+      <div id="checkoutItems" class="pt-5"></div>
+      <!--Credit Card Details-->
+      <form class="row g-3 p-5" id="checkoutForm">
+          <h5>Personal Details</h5>
+          <div class="col-md-4">
+            <label for="ccFirstName" class="form-label">First name</label>
+            <input type="text" class="form-control" id="ccFirstName" value="" required>
+            <span></span>
+          </div>
+          <div class="col-md-4">
+            <label for="ccLastName" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="ccLastName" value="" required>
+            <span></span>
+          </div>
+          <div class="col-md-4">
+            <label for="ccEmail" class="form-label">Email</label>
+            <input type="text" class="form-control" id="ccEmail" value="" required>
+            <span></span>
+          </div>
+          <div class="col-md-6">
+            <label for="ccPostalAddress" class="form-label">Postal Address</label>
+            <input type="text" class="form-control" id="ccPostalAddress" required>
+            <span></span>
+          </div>
+          <div class="col-md-3">
+            <label for="ccState" class="form-label">State</label>
+            <select class="form-select" id="ccState" required>
+              <option selected disabled value="">...</option>
+              <option value="QLD">QLD</option>
+              <option value="NSW">NSW</option>
+              <option value="ACT">ACT</option>
+              <option value="WA">WA</option>
+              <option value="TAS">TAS</option>
+              <option value="SA">SA</option>
+              <option value="VIC">VIC</option>
+              <option value="NT">NT</option>
+            </select>
+            <span></span>
+          </div>
+          <div class="col-md-3">
+            <label for="ccPostCode" class="form-label">Postcode</label>
+            <input type="text" class="form-control" id="ccPostCode" value="" required>
+            <span></span>
+          </div>
+          <h5>Credit Card Information</h5>
+          <div class="col-md-4">
+              <label for="ccNumber" class="form-label">Credit Card Number</label>
+              <input type="text" class="form-control" id="ccNumber" required>
+              <span></span>
+          </div>
+          <div class="col-md-3">
+              <label for="ccMonth" class="form-label">Month Expiry</label>
+              <input type="text" class="form-control" id="ccMonth" required>
+              <span></span>
+          </div>
+          <div class="col-md-3">
+              <label for="ccYear" class="form-label">Year Expiry</label>
+              <input type="text" class="form-control" id="ccYear" required>
+              <span></span>
+          </div>
+          <div class="col-md-2">
+              <label for="ccCCV" class="form-label">CCV</label>
+              <input type="text" class="form-control" id="ccCCV" required>
+              <span></span>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Complete Transaction</button>
+          </div>
+        </form>
+    </div>
+    <!-- Fire Base DB -->
+    <button id="insertbtn"></button>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCZH82hlwFMLz5V5R_5qURYAqexzMChBNY",
+        authDomain: "rightfit2.firebaseapp.com",
+        projectId: "rightfit2",
+        storageBucket: "rightfit2.appspot.com",
+        messagingSenderId: "461827436278",
+        appId: "1:461827436278:web:47ddaebf4192339b0e86d7"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {getDatabase, set, ref, child, update, remove}
+      from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+      const db = getDatabase();
+      // References
+      let fname = document.getElementById("ccFirstName");
+      let lname = document.getElementById("ccLastName");
+      let email = document.getElementById("ccEmail");
+      let address = document.getElementById("ccPostalAddress");
+      let state = document.getElementById("ccState");
+      let postcode = document.getElementById("ccPostCode");
+
+      let insertbtn = document.getElementById("insertbtn")
+
+      // Insert
+      function insertData() {
+          set(ref(db, "customers/" + fname.value + lname.value), {
+              firstName: fname.value,
+              lastName: lname.value,
+              postalAddress: address.value,
+              email: email.value,
+              state: state.value,
+              postcode: postcode.value
+          }).then(() => {
+              console.log("Customer Details saved to DB");
+          }).catch((e) => {
+              console.log("Save to DB unsuccessful: " + e);
+          });
+      }
+
+      insertbtn.addEventListener('click', insertData);
+    </script>
+    <!-- Footer-->
+    <div id="footer"></div>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./scripts/setup.js"></script>
+    <script src="./scripts/checkout.js" type="module"></script>
+</body>
+</html>
